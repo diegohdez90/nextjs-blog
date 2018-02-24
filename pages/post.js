@@ -7,19 +7,28 @@ import 'isomorphic-fetch';
 
 const Post = ({title, content}) => 
   <div>
+    <style jsx>
+      {`
+      .link-post {
+        text-decoration: none;
+        font-size: 24px;
+        color: #fff;
+      }
+    `}
+    </style>
     <Header />
     <Card>
       <CardHeader title={title} />
       <CardText>
         <div dangerouslySetInnerHTML={{ __html: content }} />
-        <RaisedButton fullWidth={true}>
+        <RaisedButton fullWidth={true} primary={true}>
           <Link href="/" as="/blog" >
-            <a>
+            <a className="link-post">
             Go back to blog!
             </a>
           </Link>
         </RaisedButton>
-      ></CardText>
+      </CardText>
     </Card>
   </div>
 
